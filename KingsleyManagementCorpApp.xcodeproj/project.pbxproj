@@ -21,6 +21,9 @@
 		B541700319905FBB0004F54E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5416FE519905FBB0004F54E /* UIKit.framework */; };
 		B541700B19905FBB0004F54E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B541700919905FBB0004F54E /* InfoPlist.strings */; };
 		B541700D19905FBB0004F54E /* KingsleyManagementCorpAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B541700C19905FBB0004F54E /* KingsleyManagementCorpAppTests.m */; };
+		B541701719906C8F0004F54E /* BIDNameAndColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B541701619906C8F0004F54E /* BIDNameAndColorCell.xib */; };
+		B541701B199079E60004F54E /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = B541701A199079E60004F54E /* star.png */; };
+		B5417069199096C00004F54E /* BIDNameAndColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5417068199096C00004F54E /* BIDNameAndColorCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		B541700819905FBB0004F54E /* KingsleyManagementCorpAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KingsleyManagementCorpAppTests-Info.plist"; sourceTree = "<group>"; };
 		B541700A19905FBB0004F54E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B541700C19905FBB0004F54E /* KingsleyManagementCorpAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KingsleyManagementCorpAppTests.m; sourceTree = "<group>"; };
+		B541701619906C8F0004F54E /* BIDNameAndColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BIDNameAndColorCell.xib; sourceTree = "<group>"; };
+		B541701A199079E60004F54E /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = ../../../../Desktop/star.png; sourceTree = "<group>"; };
+		B5417067199096BF0004F54E /* BIDNameAndColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIDNameAndColorCell.h; sourceTree = "<group>"; };
+		B5417068199096C00004F54E /* BIDNameAndColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIDNameAndColorCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +119,10 @@
 		B5416FE719905FBB0004F54E /* KingsleyManagementCorpApp */ = {
 			isa = PBXGroup;
 			children = (
-				B5416FF019905FBB0004F54E /* AppDelegate.h */,
-				B5416FF119905FBB0004F54E /* AppDelegate.m */,
+				B541702219908F0F0004F54E /* Delegates */,
+				B541702119908EF50004F54E /* ViewControllers */,
+				B541701A199079E60004F54E /* star.png */,
 				B5416FF319905FBB0004F54E /* Main.storyboard */,
-				B5416FF619905FBB0004F54E /* ViewController.h */,
-				B5416FF719905FBB0004F54E /* ViewController.m */,
 				B5416FF919905FBB0004F54E /* Images.xcassets */,
 				B5416FE819905FBB0004F54E /* Supporting Files */,
 			);
@@ -150,6 +156,27 @@
 				B541700919905FBB0004F54E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B541702119908EF50004F54E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B541701619906C8F0004F54E /* BIDNameAndColorCell.xib */,
+				B5417067199096BF0004F54E /* BIDNameAndColorCell.h */,
+				B5417068199096C00004F54E /* BIDNameAndColorCell.m */,
+				B5416FF619905FBB0004F54E /* ViewController.h */,
+				B5416FF719905FBB0004F54E /* ViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B541702219908F0F0004F54E /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				B5416FF019905FBB0004F54E /* AppDelegate.h */,
+				B5416FF119905FBB0004F54E /* AppDelegate.m */,
+			);
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,7 +256,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5416FFA19905FBB0004F54E /* Images.xcassets in Resources */,
+				B541701B199079E60004F54E /* star.png in Resources */,
 				B5416FEC19905FBB0004F54E /* InfoPlist.strings in Resources */,
+				B541701719906C8F0004F54E /* BIDNameAndColorCell.xib in Resources */,
 				B5416FF519905FBB0004F54E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +280,7 @@
 			files = (
 				B5416FF819905FBB0004F54E /* ViewController.m in Sources */,
 				B5416FF219905FBB0004F54E /* AppDelegate.m in Sources */,
+				B5417069199096C00004F54E /* BIDNameAndColorCell.m in Sources */,
 				B5416FEE19905FBB0004F54E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
