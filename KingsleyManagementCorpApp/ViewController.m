@@ -9,11 +9,11 @@
 #import "ViewController.h"
 #import "BIDNameAndColorCell.h"
 
+
 static NSString *CellTableIdentifier = @"CellTableIdentifier";
 
 @interface ViewController ()
 
-@property (copy, nonatomic) NSArray *dwarves;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *occupencyPercentLabel;
 @property (strong, nonatomic) IBOutlet UILabel *periodVarianceLabel;
@@ -21,6 +21,8 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 @property (copy, nonatomic) NSArray *kingsley;
 
 @end
+
+
 
 @implementation ViewController
 
@@ -52,7 +54,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     UITableView *tableView = (id)[self.view viewWithTag:1];
     [tableView registerClass: [BIDNameAndColorCell class]
       forCellReuseIdentifier:CellTableIdentifier];
-    tableView.rowHeight = 50;
+    tableView.rowHeight = 40;
     UINib *nib = [UINib nibWithNibName:@"BIDNameAndColorCell" bundle:nil];
     [tableView registerNib:nib forCellReuseIdentifier:CellTableIdentifier];
     UIEdgeInsets contentInset = tableView.contentInset;
