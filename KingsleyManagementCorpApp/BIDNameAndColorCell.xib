@@ -9,7 +9,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellTableIdentifier" id="57a-RF-WzN" customClass="BIDNameAndColorCell">
             <rect key="frame" x="0.0" y="0.0" width="301" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="57a-RF-WzN" id="Dqx-2Z-dXM">
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="57a-RF-WzN" id="Dqx-2Z-dXM">
                 <rect key="frame" x="0.0" y="0.0" width="301" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -43,9 +43,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.086274512110000007" green="0.24313727020000001" blue="0.392156899" alpha="1" colorSpace="deviceRGB"/>
-                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="0.16078431904315948" green="0.21568629145622253" blue="0.32156863808631897" alpha="1" colorSpace="deviceRGB"/>
+                <color key="tintColor" red="0.16078431904315948" green="0.21176472306251526" blue="0.32156863808631897" alpha="1" colorSpace="deviceRGB"/>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.18039216101169586" green="0.23529413342475891" blue="0.3490196168422699" alpha="1" colorSpace="deviceRGB"/>
+            <color key="tintColor" red="0.14901961386203766" green="0.21176472306251526" blue="0.32549020648002625" alpha="1" colorSpace="deviceRGB"/>
             <connections>
                 <outlet property="YTDVarianceLabel" destination="No7-5U-kKe" id="D1N-s8-6SB"/>
                 <outlet property="nameLabel" destination="TbC-kr-aWj" id="Vef-W0-LB7"/>

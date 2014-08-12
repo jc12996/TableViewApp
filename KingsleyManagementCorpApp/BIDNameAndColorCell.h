@@ -15,3 +15,5 @@
 @property (copy, nonatomic) NSString *YTDVariance;
 
 @end
+
+

@@ -8,9 +8,21 @@
 
 #import "ViewController.h"
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMailComposeViewController.h>
+#import "KLHorizontalSelect.h"
 
 @interface ViewController : UIViewController
-<UITableViewDataSource, UITableViewDelegate>
+<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, UIGestureRecognizerDelegate>
+{
+    IBOutlet UIScrollView *Scroller;
+}
+
+-(IBAction)openEmail;
+
+
+//@property (strong, nonatomic) IBOutlet UILabel *lblSwipe;
+//
+//-(void)screenWasSwiped;
 
 
 @end

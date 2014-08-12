@@ -98,6 +98,16 @@
         _periodVariance = [periodVariance copy];
         self.periodVarianceLabel.text = _periodVariance;
         
+        if ([self.periodVarianceLabel.text integerValue] > 0){
+            self.periodVarianceLabel.textColor = [UIColor greenColor];
+        }else if ([self.periodVarianceLabel.text integerValue] < 0){
+            self.periodVarianceLabel.textColor = [UIColor redColor];
+        }else{
+            self.periodVarianceLabel.textColor = [UIColor yellowColor];
+        }
+        
+        
+        
     }
 }
 

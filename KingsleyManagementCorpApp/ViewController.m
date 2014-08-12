@@ -8,28 +8,60 @@
 
 #import "ViewController.h"
 #import "BIDNameAndColorCell.h"
+#import "KLHorizontalSelect.h"
+
+
 
 
 static NSString *CellTableIdentifier = @"CellTableIdentifier";
 
 @interface ViewController ()
 
+
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *occupencyPercentLabel;
 @property (strong, nonatomic) IBOutlet UILabel *periodVarianceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *YTDVarianceLabel;
 @property (copy, nonatomic) NSArray *kingsley;
+@property (weak, nonatomic) IBOutlet UIView *borders;
+@property (weak, nonatomic) IBOutlet UIView *midborders;
+@property (weak, nonatomic) IBOutlet UIView *botborders;
+
 
 @end
 
 
 
+
+
 @implementation ViewController
+
+
+//-(void)screenWasSwiped{
+//    [_lblSwipe setText:@"Thank You"];
+//    NSLog(@"You Swiped the screen!");
+//}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    [Scroller setScrollEnabled:YES];
+    [Scroller setContentSize:CGSizeMake(280, 500)];
+    
+    _borders.layer.borderWidth=0.25f;
+    _borders.layer.borderColor=[[UIColor whiteColor] CGColor];
+    
+    _midborders.layer.borderWidth=0.25f;
+    _midborders.layer.borderColor=[[UIColor whiteColor] CGColor];
+    
+    _botborders.layer.borderWidth=0.25f;
+    _botborders.layer.borderColor=[[UIColor whiteColor] CGColor];
+    
+//    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(screenWasSwiped)];
+//    swipeRight.numberOfTouchesRequired = 1;
+//    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+//    [self.view addGestureRecognizer:swipeRight];
     
     self.kingsley = @[@{@"Name" : @"Rob", @"Occupency Percent" : @"99.3%", @"Period Variance" : @"0", @"YTD Variance" : @"2"},
                       @{@"Name" : @"Nate", @"Occupency Percent" : @"93.3%", @"Period Variance" : @"3", @"YTD Variance" : @"1"},
@@ -54,7 +86,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     UITableView *tableView = (id)[self.view viewWithTag:1];
     [tableView registerClass: [BIDNameAndColorCell class]
       forCellReuseIdentifier:CellTableIdentifier];
-    tableView.rowHeight = 40;
+    tableView.rowHeight = 60;
     UINib *nib = [UINib nibWithNibName:@"BIDNameAndColorCell" bundle:nil];
     [tableView registerNib:nib forCellReuseIdentifier:CellTableIdentifier];
     UIEdgeInsets contentInset = tableView.contentInset;
@@ -88,85 +120,42 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     return cell;
 }
 
+//Open MFMail and set preferences
+-(IBAction) openEmail {
+    MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
+    [mailComposer setMailComposeDelegate:self];
+    if ([MFMailComposeViewController canSendMail]) {
+        [mailComposer setToRecipients:[NSArray arrayWithObjects:@"johnchristiansen@gmail.com", nil]];
+        [mailComposer setSubject:@"OR Report"];
+        [mailComposer setMessageBody:@"The OR report for today" isHTML:NO]; [mailComposer setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        [self presentModalViewController:mailComposer animated:YES];
+//        [mailComposer release];
+    }else {
+//        [mailComposer release];
+    }
+}
+
+////Dismiss MFMail
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Error %@", [error description]] delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+        [alert show];
+        [self dismissModalViewControllerAnimated:YES];
+    }
+    [self dismissModalViewControllerAnimated:YES];
+    
+}
 
 
-//Don't Touch
+////Don't Touch
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)EmailIt:(id)sender {
+}
 @end
-
-
-//Extra Practice Code:
-// If I don't want a custom table do the following:
-//    self.dwarves = @[@"Rob", @"Nate", @"Bing", @"John",
-//                     @"Ted", @"Ned",
-//                     @"Thorin", @"Dorin", @"Norin",  @"Orin"];
-//    //Add Image
-////    UIImage *image = [UIImage imageNamed:@"star"];
-////    cell.imageView.image = image;
-//
-//    //Change font
-//    cell.textLabel.font = [UIFont boldSystemFontOfSize:10];
-//
-//
-//    //For assigning sub data to the main cell.
-//    cell.textLabel.text = self.dwarves[indexPath.row];
-//    if (indexPath.row < 7) {//The first 6 items will be assigned Mr. Disney, etc
-//        cell.detailTextLabel.text = @"Mr. Disney";
-//    } else {
-//        cell.detailTextLabel.text = @"Mr. Tolkien";
-//    }
-//    return cell;
-//}
-//
-////Indents Table Rows one all the way down...
-////- (NSInteger)tableView:(UITableView *)tableView
-////indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
-////{
-////    return indexPath.row;
-////}
-//
-//
-////The following code makes a model that tells me what was the last row I selected was.
-//- (NSIndexPath *)tableView:(UITableView *)tableView
-//  willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (indexPath.row == 0) {
-//        return nil;
-//    } else{
-//        return indexPath;
-//    }
-//}
-//
-//- (void)tableView:(UITableView *)tableView
-//didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    NSString *rowValue = self.dwarves[indexPath.row];
-//    NSString *message = [[NSString alloc] initWithFormat:@"You selected %@", rowValue];
-//    UIAlertView *alert = [[UIAlertView alloc]
-//                          initWithTitle:@"Row Selected!"
-//                          message:message
-//                          delegate:nil
-//                          cancelButtonTitle:@"Back"
-//                          otherButtonTitles:nil];
-//
-//    [alert show];
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//
-//}
-//
-////SPecifiy height of the table view row's
-//- (CGFloat)tableView:(UITableView *)tableView
-//heightForRowAtIndexPath:(NSString *)indexPath
-//{
-//    return 50;
-//}
-//
-
-
 
 
