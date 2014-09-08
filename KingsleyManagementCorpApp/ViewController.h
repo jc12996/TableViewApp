@@ -20,6 +20,9 @@
 -(IBAction)openEmail;
 
 
+
+
+
 //@property (strong, nonatomic) IBOutlet UILabel *lblSwipe;
 //
 //-(void)screenWasSwiped;

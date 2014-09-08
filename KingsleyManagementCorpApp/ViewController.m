@@ -28,6 +28,8 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 @property (weak, nonatomic) IBOutlet UIView *botborders;
 
 
+
+
 @end
 
 
@@ -46,6 +48,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 {
     [super viewDidLoad];
     
+
     [Scroller setScrollEnabled:YES];
     [Scroller setContentSize:CGSizeMake(280, 500)];
     
@@ -55,7 +58,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     _midborders.layer.borderWidth=0.25f;
     _midborders.layer.borderColor=[[UIColor whiteColor] CGColor];
     
-    _botborders.layer.borderWidth=0.25f;
+    _botborders.layer.borderWidth=0.75f;
     _botborders.layer.borderColor=[[UIColor whiteColor] CGColor];
     
 //    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(screenWasSwiped)];
@@ -96,6 +99,19 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     
 }
 
+//dismiss the keyboard when press enter
+- (BOOL)textFieldShouldReturn:(UITextField *)textField { [textField resignFirstResponder];
+    return YES;
+    
+}
+
+//dismiss the keyboard when touch out
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+    [super touchesBegan:touches withEvent:event];
+}
+
+//returns the array string
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
@@ -127,7 +143,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     if ([MFMailComposeViewController canSendMail]) {
         [mailComposer setToRecipients:[NSArray arrayWithObjects:@"johnchristiansen@gmail.com", nil]];
         [mailComposer setSubject:@"OR Report"];
-        [mailComposer setMessageBody:@"The OR report for today" isHTML:NO]; [mailComposer setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        [mailComposer setMessageBody:@"Here is the current OR report" isHTML:NO]; [mailComposer setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
         [self presentModalViewController:mailComposer animated:YES];
 //        [mailComposer release];
     }else {
@@ -155,6 +171,8 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 }
 
 - (IBAction)EmailIt:(id)sender {
+}
+- (IBAction)submitButton:(id)sender {
 }
 @end
 
